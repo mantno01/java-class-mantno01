@@ -18,16 +18,16 @@ public class Ex2Driver {
     for (int i = 0; i < 10; i++) {
       numberLst.add(rnd.nextInt(100));
     }
-    task1(3);
+    //task1(3);
     System.out.println(task2(numberArr, 90));
-    System.out.println(task3(numberArr, 75));
-    task4(numberArr);
-    task5(numberArr);
-    task6();
-    task7();
-    System.out.println(task8(numberLst, 75));
-    task9();
-    task10(task9());
+    //System.out.println(task3(numberArr, 75));
+    //task4(numberArr);
+    //task5(numberArr);
+    //task6();
+    //task7();
+    //System.out.println(task8(numberLst, 75));
+    //task9();
+    //task10(task9());
   }
 
   /**
@@ -35,16 +35,53 @@ public class Ex2Driver {
    * @param n
    */
   public static void task1(int n) {
-    throw new UnsupportedOperationException("Task 1 is not implemented yet.");
+    System.out.print("-----task 1-----\n");
+    //throw new UnsupportedOperationException("Task 1 is not implemented yet.");
+    nheads(n);
   }
+  public static void nheads(int n){
+      int heads = 0;
+      int tails = 0;
+      int coin = 0;
+      Random flip = new Random();
+      
+      while(heads < n){
+         coin = flip.nextInt(2);
+         if(coin == 0){
+             heads++;
+             System.out.print("Heads\n");
+         }
+         else{
+             heads = 0;
+             System.out.print("Tails\n");
+         }
+          
+      }
+  }
+  
   /**
-   * TODO: Task 2: Define a function that takes an array of integers and a number as parameters and returns boolean True if the number provided is larger than every element of the array, False otherwise.
+   * TODO: Task 2: Define a function that takes an array of integers and a number as parameters and returns boolean 
+   * True if the number provided is larger than every element of the array, False otherwise.
    * @param arr
    * @param n
    * @return 
    */
-  public static boolean task2(int[] arr, int n) {
-    throw new UnsupportedOperationException("Task 2 is not implemented yet.");
+  public static boolean task2(int[] numberArr, int n) {
+    System.out.print("\n----- task 2 -----\n");
+    Boolean result = new Boolean(true);
+    //throw new UnsupportedOperationException("Task 2 is not implemented yet.");
+    for(int i = 0; i < numberArr.length;){
+        if(numberArr[i] < n){
+            i++;
+        }
+        else if(i == numberArr.length && numberArr[i] < n){
+           result = true;
+        }
+        else{
+           result = false;
+        }
+    }
+   return result;
   }
   /**
    * TODO: Task 3: Write a function that takes an array of integers and a threshold and prints how many values are below the threshold.
