@@ -1,7 +1,9 @@
 package exercise2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @author yasiro01
@@ -18,16 +20,16 @@ public class Ex2Driver {
     for (int i = 0; i < 10; i++) {
       numberLst.add(rnd.nextInt(100));
     }
-    //task1(3);
+    task1(3);
     System.out.println(task2(numberArr, 90));
-    //System.out.println(task3(numberArr, 75));
-    //task4(numberArr);
-    //task5(numberArr);
-    //task6();
-    //task7();
-    //System.out.println(task8(numberLst, 75));
-    //task9();
-    //task10(task9());
+    System.out.println(task3(numberArr, 75));
+    task4(numberArr);
+    task5(numberArr);
+    task6();
+    task7(numberLst);
+    System.out.println(task8(numberLst, 75));
+    task9();
+    task10(task9());
   }
 
   /**
@@ -66,22 +68,22 @@ public class Ex2Driver {
    * @param n
    * @return 
    */
-  public static boolean task2(int[] numberArr, int n) {
+  public static boolean task2(int[] arr, int n) {
     System.out.print("\n----- task 2 -----\n");
-    Boolean result = new Boolean(true);
+    Boolean result = true;
     //throw new UnsupportedOperationException("Task 2 is not implemented yet.");
-    for(int i = 0; i < numberArr.length;){
-        if(numberArr[i] < n){
+    for(int i = 0; i < arr.length;){
+        if(arr[i] < n){
             i++;
         }
-        else if(i == numberArr.length && numberArr[i] < n){
+        else if(i == arr.length && arr[i] < n){
            result = true;
         }
         else{
            result = false;
         }
     }
-   return result;
+    return result;
   }
   /**
    * TODO: Task 3: Write a function that takes an array of integers and a threshold and prints how many values are below the threshold.
@@ -90,57 +92,150 @@ public class Ex2Driver {
    * @return 
    */
   public static int task3(int[] arr, int threshold) {
-    throw new UnsupportedOperationException("Task 3 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 3 is not implemented yet.");
+    System.out.print("\n----- task 3 -----\n");
+    int numBelow = 0;
+    for(int i = 0; i < arr.length; i++){
+        if(arr[i] < threshold){
+            numBelow++;
+        }
+    }
+    return numBelow;
   }
   /**
-   * TODO: Task 4: Write a function that takes an array of integers as a parameter, finds the difference between 100 and the largest element of the array and adds this difference to every element in the array. (Note: after this function call the largest value in the array must be 100.)
+   * TODO: Task 4: Write a function that takes an array of integers as a parameter, finds the difference between
+   * 100 and the largest element of the array and adds this difference to every element in the array. 
+   * (Note: after this function call the largest value in the array must be 100.)
    * @param arr
    */
   public static void task4(int[] arr) {
-    throw new UnsupportedOperationException("Task 4 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 4 is not implemented yet.");
+    System.out.print("\n----- task 4 -----\n");
+    int largest = arr[0];
+    for(int i = 1; i < arr.length; i++){
+        if(arr[i] > largest){
+            largest = arr[i];
+        }
+      }
+    int difference = 100 - largest;
+    for(int i = 1; i < arr.length; i++){
+        arr[i] = arr[i] + difference;
+    }
+    System.out.print(Arrays.toString(arr));
   }
   /**
-   * TODO: Task 5: Write a function that takes an array of integers as a parameter and, assuming the values are scores, prints number of students with 'A', 'B', 'C', 'D' and 'F'.
+   * TODO: Task 5: Write a function that takes an array of integers as a parameter and, assuming the values are
+   * scores, prints number of students with 'A', 'B', 'C', 'D' and 'F'.
    * @param arr
    */
   public static void task5(int[] arr) {
-    throw new UnsupportedOperationException("Task 5 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 5 is not implemented yet.");
+    System.out.print("\n-----Task 5-----\n");
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    int d = 0;
+    int f = 0;
+    for(int i = 1; i < arr.length; i++){
+        if(arr[i] >= 90){
+            a++;
+        }
+        if(arr[i] <90 && arr[i] >= 80){
+            b++;
+        }
+        if(arr[i] <80 && arr[i] >= 70){
+            c++;
+        }
+        if(arr[i] < 70 && arr[i] >= 60){
+            d++;
+        }
+        if(arr[i] < 60){
+            f++;
+        }
+    }
+    System.out.print("A: " + a + '\n');
+    System.out.print("B: " + b + '\n');
+    System.out.print("C: " + c + '\n');
+    System.out.print("D: " + d + '\n');
+    System.out.print("F: " + f + '\n');
   }
   /**
-   * TODO: Task 6: Create an ArrayList of double values and ask a user to start entering numbers. Keep asking and adding numbers to the ArrayList until the user enters 0, then stop and print all the values in the ArrayList. Use function add() to add a number to an ArrayList.
+   * TODO: Task 6: Create an ArrayList of double values and ask a user to start entering numbers. 
+   * Keep asking and adding numbers to the ArrayList until the user enters 0, then stop and print 
+   * all the values in the ArrayList. Use function add() to add a number to an ArrayList.
    */
   public static void task6() {
     ArrayList<Double> arr = new ArrayList();
-    throw new UnsupportedOperationException("Task 6 is not implemented yet.");
+    double num = 1.0;
+    Scanner userNum = new Scanner(System.in);
+    //throw new UnsupportedOperationException("Task 6 is not implemented yet.");
+    while(num != 0){
+        System.out.print("Plz feed number: ");
+        num = userNum.nextDouble();
+        arr.add(num);
+    }
+    System.out.print(arr);
   }
   /**
    * TODO: Task 7: Create an ArrayList of integer values of size 10 and initialize each element of the ArrayList to a random number between 50 and 100.
+     * @param arr
    */
-  public static void task7() {
-    throw new UnsupportedOperationException("Task 7 is not implemented yet.");
+  public static void task7(ArrayList<Integer> arr) {
+    //throw new UnsupportedOperationException("Task 7 is not implemented yet.");
+    System.out.print("\n----- Task 7 -----\n");
+    System.out.print(arr);
+    
   }
   /**
-   * TODO: Task 8: Define a function that takes an ArrayList of integer values and a threshold as parameters and returns the number of values in the ArrayList below a threshold. You may use the ArrayList created at the previous step.
+   * TODO: Task 8: Define a function that takes an ArrayList of integer values and a threshold as parameters and returns the 
+   * number of values in the ArrayList below a threshold. You may use the ArrayList created at the previous step.
    * @param arrLst
    * @param threshold
    * @return 
    */
   public static int task8(ArrayList<Integer> arrLst, int threshold) {
-    throw new UnsupportedOperationException("Task 8 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 8 is not implemented yet.");
+    System.out.print("\n----- Task 8 -----\n");
+    int numBelow = 0;
+    for(int i = 0; i < arrLst.size(); i++){
+        if(arrLst.get(i) < threshold){
+            numBelow++;
+        }
+    }
+    return numBelow;
+    
   }
   /**
-   * TODO: Task 9: Generate a 2-dimensional array of size 10x10. Initialize values in the array to the values in the multiplication table of size 10. (e.g. values in the intersections must start with 1 (1x1) and go all the way up to 100). Print the array and return it.
+   * TODO: Task 9: Generate a 2-dimensional array of size 10x10. Initialize values in the array to the values in the multiplication table of size 10. 
+   * (e.g. values in the intersections must start with 1 (1x1) and go all the way up to 100). Print the array and return it.
    * @return 
    */
   public static int[][] task9() {
-    throw new UnsupportedOperationException("Task 9 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 9 is not implemented yet.");
+    System.out.print("\n----- Task 9 -----\n");
+    int [][] multTable = new int[10][10];
+    for(int row = 0; row < multTable.length; row++){
+        for(int column = 0; column < multTable[row].length; column++){
+            multTable[row][column] = (row + 1) * (column + 1);
+        }
+    }
+    System.out.print(Arrays.toString(multTable));
+    return multTable;
+    
   }
   /**
    * TODO: Task 10: Calculate and print the sum of values in each row and each column of the matrix generated at the previous step.
    * @param matrix
    */
   public static void task10(int[][] matrix) {
-    throw new UnsupportedOperationException("Task 3 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 10 is not implemented yet.");
+    System.out.print("\n----- Task 10 -----\n");
+    int sum = 0;
+    for(int row=0; row<matrix.length; row++){
+        for(int col=0; col< matrix.length; col++)
+            sum += matrix[row][col];
+    }
+    System.out.print(sum);
   }
 
 }
