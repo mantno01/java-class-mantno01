@@ -14,15 +14,15 @@ public class Ex1Driver {
     for (int i = 0; i < 10; i++) {
       numbers[i] = rnd.nextInt(10);
     }
-    task1();
-    task2();
-    task3();
-    task4();
-    task5();
-    task6();
-    task7();
-    task8(numbers);
-    task9();
+    //task1();
+    //task2();
+    //task3();
+    //task4();
+    //task5();
+    //task6();
+    //task7();
+    //task8(numbers);
+    //task9();
     task10();
   }
 
@@ -170,20 +170,40 @@ public class Ex1Driver {
    * @return 
    */
   public static int task8(int[] numbers) {
-    throw new UnsupportedOperationException("Task 8 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 8 is not implemented yet.");
+    System.out.print("\n----- Task 8 -----\n");
+    int sum = 0;
+    for(int i=0; i<numbers.length; i++){
+        sum += numbers[i];
+    }
+    System.out.print(sum);
+    return sum;
   }
   /**
    * TODO: Task 9: Ask a user to enter a word and write a function that tells if letters of a word are ordered (ie. "buy" would return true, while "bye" - false).
    * @return 
    */
   public static boolean task9() {
-    throw new UnsupportedOperationException("Task 9 is not implemented yet.");
-  }
+    //throw new UnsupportedOperationException("Task 9 is not implemented yet.");
+    System.out.print("\n----- Task 9 -----\n");
+    Scanner scanWord = new Scanner(System.in);
+    System.out.print("Feed me word: ");
+    String word = scanWord.next();
+    for(int i=0; i<word.length(); i++){
+        if(word.charAt(i) > word.charAt(i+1)){
+            return false;
+        }
+     }
+    return true;
+    }
   /**
    * TODO: Task 10: Implement sieve of Eratosthenes and print all prime numbers between 1 and 100
    */
   public static void task10() {
-    throw new UnsupportedOperationException("Task 3 is not implemented yet.");
+    //throw new UnsupportedOperationException("Task 3 is not implemented yet.");
+    System.out.print("\n----- Task 10-----\n");
+
+
   }
 
 }
