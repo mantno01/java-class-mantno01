@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @author yasiro01
  */
 public class Ex2Driver {
-  public static final String PATH = "data/";
+  public static final String PATH = "/home/mantno01/NetBeansProjects";
   /**
    * main application function
    * @param args 
@@ -20,12 +20,15 @@ public class Ex2Driver {
     int[][] matrix1 = null;
     int[][] matrix2 = null;
     int[][] result = null;
+   
     try {
       matrix1 = readFile(PATH + "matrix1.txt");
       matrix2 = readFile(PATH + "matrix2.txt");
     } catch (FileNotFoundException ex) {
       Logger.getLogger(Ex2Driver.class.getName()).log(Level.SEVERE, ex.toString(), ex);
+     
     }
+   
     System.out.println("Matrix 1");
     printMatrix(matrix1);
     System.out.println("Matrix 2");
@@ -48,6 +51,7 @@ public class Ex2Driver {
    * Print a matrix
    * @param matrix to print
    */
+
   public static void printMatrix(int[][] matrix) {
     for (int[] row: matrix) {
       for (int item: row) {
@@ -62,6 +66,8 @@ public class Ex2Driver {
    * @param filename 
    * @throws java.io.FileNotFoundException 
    */
+
+
   public static void writeMatrix(int[][] matrix, String filename) throws FileNotFoundException {
     throw new UnsupportedOperationException();
   }
@@ -71,24 +77,40 @@ public class Ex2Driver {
    * @return matrix read from a file
    * @throws java.io.FileNotFoundException
    */
+
   public static int[][] readFile(String filename) throws FileNotFoundException {
     throw new UnsupportedOperationException();
+    Scanner input1 = new Scanner(filename);
+    input1.nextLine();
+    while(firstScan.hasNext()){
+        for(int row=0; row<filename.length(); row++){
+            for(int col=0; row<filename.length(); col++){
+                matrix1[row][col] = input1.nextInt();
+            }
+        }
+    }
     /*
-    10. Open the input file and create a Scanner object to read its content
+
+    10. Open the input file and create a Scanner object to read its contents
     20. Read two values (rows and columns) from the first line, if possible
     30. Create a new 2-D array
     40. Read data from the file, one line at a time, using the Scanner object
     50. Split each line into individual tokens and put them into your array
     60. Return the array
     */
+    
   }
   /**
+   *
    * Multiply two matrices
    * @param matrix1
    * @param matrix2
    * @return the resulting matrix
    */
+
   public static int[][] multiply(int[][] matrix1, int[][] matrix2) {
     throw new UnsupportedOperationException();
   }
+  
+
 }
